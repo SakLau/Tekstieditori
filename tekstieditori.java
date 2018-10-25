@@ -68,12 +68,13 @@ public class tekstieditori extends JFrame {
 		JMenu mnTiedosto = new JMenu("Tiedosto");
 		menuBar.add(mnTiedosto);
 		
+		// Luodaan avaa toiminto
+		
 		JMenuItem mntmAvaa = new JMenuItem("Avaa");
 		mntmAvaa.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {			
 				
-				JFileChooser valintaikkuna = new JFileChooser();
-				
+				JFileChooser valintaikkuna = new JFileChooser();				
 				valintaikkuna.setApproveButtonText("Avaa tiedosto");
 				valintaikkuna.setDialogTitle("Tiedoston valinta");
 				valintaikkuna.showOpenDialog(null);
@@ -91,15 +92,21 @@ public class tekstieditori extends JFrame {
 				}
 				
 			} catch (FileNotFoundException p) {
-				System.out.println("Tiedostoa ei l�ydy");
+				System.out.println("Tiedostoa ei löydy");
 			}
 					
 			editorPane_1.setText(rivi);
 			}
+			
+		// Kaikki ikonien kuvat ovat mukana repossa, mutta en saanut niitä näkymään muuta kuin laittamalla ne samaan
+		// kansioon / hakemistoon kuin itse tekstieditori.
+			
 		});
 		mntmAvaa.setIcon(new ImageIcon("C:\\Users\\Sakke\\eclipse-workspace\\Projekti\\src\\open.png"));
 		mntmAvaa.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_O, InputEvent.CTRL_MASK));
 		mnTiedosto.add(mntmAvaa);
+		
+		// Luodaan tallenna toiminto
 		
 		JMenuItem mntmTallenna = new JMenuItem("Tallenna");
 		mntmTallenna.addActionListener(new ActionListener() {
@@ -140,6 +147,8 @@ public class tekstieditori extends JFrame {
 		
 		JMenu mnMuokkaa = new JMenu("Muokkaa");
 		menuBar.add(mnMuokkaa);
+		
+		// Luodaan etsi toiminto, jolla haetaan sanaa auto
 		
 		JMenuItem mntmEtsi = new JMenuItem("Etsi");
 		mntmEtsi.addActionListener(new ActionListener() {
@@ -182,6 +191,8 @@ public class tekstieditori extends JFrame {
 		JButton button = new JButton("");
 		button.setIcon(new ImageIcon("C:\\Users\\Sakke\\eclipse-workspace\\Projekti\\src\\New_file.png"));
 		toolBar.add(button);
+		
+		// Tämä on tallenna-nappi, joka on luotu ikonista.
 		
 		JButton button_1 = new JButton("");
 		button_1.addActionListener(new ActionListener() {
